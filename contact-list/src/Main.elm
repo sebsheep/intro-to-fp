@@ -26,7 +26,7 @@ init : Model
 init =
     { nameInput = ""
     , ageInput = ""
-    , people = Dict.empty --Debug.todo "Fill the personList field with an appropriate value!"
+    , people = Debug.todo "Fill the personList field with an appropriate value!"
     }
 
 
@@ -54,10 +54,7 @@ view model =
         [ column [ spacing 30, width fill, height fill ]
             -- TODO: replace this empty list with the actual people list,
             -- TODO: you can use the viewPerson function (see below)
-            -- []
-            (Dict.toList model.people
-                |> List.map viewPerson
-            )
+            []
         , viewControlBar model
         ]
 
