@@ -15,7 +15,7 @@ the level 1 before doing it!
 import Browser
 import Command
 import Dict exposing (Dict)
-import Element exposing (Element, column, el, fill, height, padding, paddingEach, px, rgb, rgba, row, spacing, text, width)
+import Element exposing (Element, column, el, fill, height, none, padding, paddingEach, px, rgb, rgba, row, spacing, text, width)
 import Element.Background as Background
 import Element.Font as Font
 import Element.Input as Input
@@ -109,6 +109,11 @@ viewControlBar model =
             { onPress = Maybe.map CommandSubmitted maybeCommandStr
             , label = text "Add"
             }
+        , if model.error then
+            el [ Font.color (rgb 1 0 0) ] (text "Error in the command")
+
+          else
+            none
         ]
 
 
