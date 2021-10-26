@@ -14,5 +14,7 @@ Minimal list of commands to support:
 * Display some string: `echo foo`
 
 Optional features:
-* Piping output to a given file: e.g. `ls > myFile`
+* Piping output to a given file: e.g. `ls > myFile`. This can be used to write some content into files, eg. `echo test > file.txt`
+* Concatenate the content of multiple files: `cat file1 file2`
 * Displaying the hierachical folder structure: `tree`
+* Handling some options in commands, like `ls -l` or `mkdir -p`
