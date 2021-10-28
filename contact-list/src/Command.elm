@@ -42,18 +42,18 @@ parse string =
 parser : Parser Command
 parser =
     Parser.oneOf
-        [ addPersonParser
-        , removePersonParser
+        [ removePersonParser
+        , addPersonParser
         ]
-
-
-addPersonParser : Parser Command
-addPersonParser =
-    -- TODO: write this parser! Run elm-test to ensure it works
-    Parser.succeed (AddPerson { name = "FAKE NAME", age = 4444 })
 
 
 removePersonParser : Parser Command
 removePersonParser =
     -- TODO: write this parser! Run elm-test to ensure it works
     Parser.succeed (RemovePerson "FAKE NAME")
+
+
+addPersonParser : Parser Command
+addPersonParser =
+    -- TODO: write this parser! Run elm-test to ensure it works
+    Parser.succeed (AddPerson { name = "FAKE NAME", age = 4444 })
