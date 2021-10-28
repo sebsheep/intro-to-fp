@@ -4,7 +4,7 @@ This projects aims to reproduce basic features of the Logo programming
 langage: the user enters a list of commands that make a turtle moving on
 the screen. The turtle has a pen on its tail, so we can draw with it!
 
-**SIMPLIFCATIONS:** we wont try making the turtle smoothlessly move. When the user
+**SIMPLIFCATIONS:** we wont try making the turtle smoothly move. When the user
 enters the command, the turtle immediatly move to its next position and the line
 is directly drawn.
 

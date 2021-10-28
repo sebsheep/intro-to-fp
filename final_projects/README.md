@@ -5,7 +5,7 @@ You have to chose on project among the following:
 * mini-mapple
 * mini-turtle
 * mini-geogebra
-* mini-...?
+* mini-civilization
 
 
 ## Common instructions for all projects
