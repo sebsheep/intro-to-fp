@@ -7,14 +7,14 @@ expected. E.g., refreshing the web page would totally remove all the data.
 
 **Simplifications:** creation/modification date will not be supported.
 
-Minimal list of commands to support:
+## Minimal list of commands to support
 * Create a file with an empty content: `touch nameOfFile`
 * List all files and directories in the current directory: `ls`
 * Make directory: `mkdir nameOfDirectory`
 * Change directory: `cd directory`
 * Implement the `pwd` command.
 
-Optional features could be:
+## Optional features
 * Handling some options in commands, like `ls -l` or `mkdir -p`
 * Putting content into files:
     - Display some string: `echo foo`

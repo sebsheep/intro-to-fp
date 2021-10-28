@@ -1,4 +1,4 @@
-# MINI BASH
+# MINI GEOGEBRA
 
 This project aims to reproduce basic features of Geogebra.
 
@@ -10,15 +10,15 @@ Efforts on UI will NOT be taken into account, so don't spend too much time on it
 (That said, in "real" projects, UI/UX really is important and you have to polish it
 as much as possible).
 
-Objects should be displayed with their name next to them. Here is the minimal commands set to implement:
+## Minimal commands set
+Objects should be displayed with their name next to them.
 * add a point: `A = (1, 3)` (up to you to decide whether you allow multi chars name or restrict the names to a single char).
   Hint: using a `Float` might way easier than `Int` to do some computation later.
 * add a segment between two existing points: `s = [A,B]`
 * add a circle given the center (existing point) and a radius: `C = circle(A, 5)`
 * allow segment creation directly with coordinate: `s= [(1,2), (5,3)]`. Same thing with the circle: `C = circle((1,3), 5)`
 
-Additional optional features could be:
-* bolden a shape on mouse hover.
+## Additional optional features
 * intersection (this part requires some geometric skills. You can use some formulea found on the internet without deeply
      understanding them. The evaluation won't be on your math skills):
     - add a (infinite) line: `d = (A, B)` (where `A` and `B` are points). Hint: reprsent the line as an equation `ax +by + c = 0` 

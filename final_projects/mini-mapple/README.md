@@ -3,7 +3,7 @@
 This project aims to reproduce basic features of a CAS like Mapple.
 
 
-Minimal set of commands to implement:
+## Minimal set of commands to implement
 * storing an integer in a variable: `$i = 3` and displaying it back when the user just type it.
 * storing a sum in a variable: `$s = (3 + 4)` display the sum back when the user types this variable. E.g.
   if the user types `$s` we want to see `(3+4)`, not `7`.
@@ -19,7 +19,13 @@ Minimal set of commands to implement:
 
 
 
-Additional optional features:
+
+## Additional optional features
+* make it possible to use a variable like `$s` as a normal expression. E.g. we could be able to write: `$s = (5 + x)`
+  and then `eval((3 + $s), x = 9)`.
+* simplify expressions: `simplify((0 + x))` will return `x`. Do the same for `0 * x` and `1 * x` (and also with `x * 1`, ...).
+* derive expressions with respect to a given variable: e.g. `derive((5 + x), x)` would give `0+1`
+  (and applying `simplify` will give `1`).
 * make it possible for the user to save the current session as a file and to restore the session by loading the file.
   *Hint: the whole state of the session only depends on the user commands.*
 
