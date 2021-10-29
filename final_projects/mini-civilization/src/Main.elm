@@ -3,7 +3,7 @@ module Main exposing (..)
 {-| This is a skeleton for an interpreter application. For now it basically simply display what you type in.
 You should just:
 
-  - insert your code in the update and the viewTurtlePath functions,
+  - insert your code in the update and the viewMap functions,
   - surely add some field in the Model type.
 
 You can of course add other types,
@@ -62,12 +62,32 @@ update msg model =
             model
 
 
+grassTileUrl : String
+grassTileUrl =
+    "https://i.pinimg.com/474x/0b/61/12/0b611238fe328faa6ba30e89aab39e32--grass-texture-grasses.jpg"
+
+
+houseTileUrl : String
+houseTileUrl =
+    "https://lh3.googleusercontent.com/proxy/2Wr6rgQzX3MNJLZDkemAFKmOKzz2Mep8aS_AJRhYl2K32luc6WkmURB04wLNTPUKY3JGGwDeqOW5nNNp_8R-d7cEQg"
+
+
+goldMineTileUrl : String
+goldMineTileUrl =
+    "https://lh3.googleusercontent.com/proxy/fhK_jHUof4nMDWATraR0GMcwB9BUHJSmFkbqwiLeXtgo6oqQMdJF6qKGl6tHBetEe2I4RNHcbfxByRm7m2OBSaxOLQ"
+
+
+workerTileUrl : String
+workerTileUrl =
+    "https://images.vexels.com/media/users/3/127494/isolated/lists/ab8d7f5047b1673c44f91fae53039bc6-construction-worker-cartoon.png"
+
+
 view : Model -> Element Msg
 view model =
     column [ width fill, height fill ]
         [ el [ width fill, height fill ]
-            (el [ Border.width 2, padding 2, centerX, centerY, Background.color (Element.rgb255 52 101 164) ]
-                (Element.html (Collage.Render.svgBox ( 800, 800 ) (viewTurtlePath model)))
+            (el [ Border.width 2, padding 2, centerX, centerY, Background.tiled grassTileUrl ]
+                (Element.html (Collage.Render.svgBox ( 1000, 800 ) (viewMap model)))
             )
         , row [ width fill, height (px 50) ]
             [ el [] (text "Your command: ")
@@ -85,19 +105,38 @@ view model =
         ]
 
 
-viewTurtlePath : Model -> Collage Msg
-viewTurtlePath model =
+{-| the cell size in pixels. Feel free to change it if you prefer bigger or smaller cells
+-}
+cellSize : Float
+cellSize =
+    100
+
+
+viewMap : Model -> Collage Msg
+viewMap model =
     -- TODO: change this function! Here are some examples to draw basic shapes.
     -- Feel free to define some helper functions!
     -- Note that unfortunately, the Color.Color and Element.Color types doesn't match.
     Collage.group
-        [ -- Drawing a bunch of segments tracing turtle movements.
-          Collage.segment ( 0, 0 ) ( 50, 100 )
-            |> Collage.traced (Collage.solid 1 (Collage.uniform Color.black))
-        , Collage.segment ( 50, 100 ) ( 100, 100 )
-            |> Collage.traced (Collage.solid 1 (Collage.uniform Color.black))
-        , Collage.image ( 60, 60 ) "https://elm-lang.org/images/turtle.gif"
-            |> Collage.shift ( 100, 100 )
+        [ -- Display a gold mine with its identifier
+          Collage.image ( cellSize, cellSize ) goldMineTileUrl
+            |> Collage.shift ( 2 * cellSize, 3 * cellSize )
+        , Collage.Text.fromString "3"
+            |> Collage.rendered
+            |> Collage.shift ( 2 * cellSize + cellSize / 3, 3 * cellSize + cellSize / 3 )
+
+        -- Display a worker with its identifier
+        , Collage.image ( cellSize / 2, cellSize / 2 ) workerTileUrl
+            |> Collage.shift ( -2 * cellSize, -3 * cellSize )
+        , Collage.Text.fromString "1"
+            |> Collage.rendered
+            |> Collage.shift ( -2 * cellSize + cellSize / 4, -3 * cellSize + cellSize / 4 )
+
+        -- Display house with its identifier
+        , Collage.image ( cellSize, cellSize ) houseTileUrl
+        , Collage.Text.fromString "2"
+            |> Collage.rendered
+            |> Collage.shift ( cellSize / 3, cellSize / 3 )
 
         -- You should have enough with the above examples, but if you need diving deeper in the `Collage` library
         -- here is the documentation link: https://package.elm-lang.org/packages/timjs/elm-collage/latest/
