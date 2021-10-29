@@ -19,6 +19,7 @@ Objects should be displayed with their name next to them.
 * allow segment creation directly with coordinate: `s= [(1,2), (5,3)]`. Same thing with the circle: `C = circle((1,3), 5)`
 
 ## Additional optional features
+* bold shape on hover.
 * intersection (this part requires some geometric skills. You can use some formulea found on the internet without deeply
      understanding them. The evaluation won't be on your math skills):
     - add a (infinite) line: `d = (A, B)` (where `A` and `B` are points). Hint: reprsent the line as an equation `ax +by + c = 0` 
